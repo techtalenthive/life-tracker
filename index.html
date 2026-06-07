@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Life Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section id="loginPage" class="login-page">
+    <form id="loginForm" class="login-card">
+      <p class="eyebrow">Private access</p>
+      <h1>Life Tracker</h1>
+
+      <label for="loginPassword">Password</label>
+      <input id="loginPassword" name="loginPassword" type="password" placeholder="Enter app password" required>
+
+      <button class="save-button" type="submit">Login</button>
+      <p id="loginMessage" class="form-message" aria-live="polite"></p>
+    </form>
+  </section>
+
+  <div id="appShell" class="app-shell hidden">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Money overview</p>
+        <h1>Life Tracker</h1>
+      </div>
+      <button id="logoutButton" class="logout-button" type="button">Logout</button>
+    </header>
+
+    <nav class="tabs" aria-label="Main navigation">
+      <button class="tab-button active" data-page="dashboard" type="button">Dashboard</button>
+      <button class="tab-button" data-page="personal" type="button">Personal</button>
+    </nav>
+
+    <main>
+      <section id="dashboardPage" class="page active">
+        <div class="summary-grid">
+          <article class="summary-card income-card">
+            <span>Total Income</span>
+            <strong id="totalIncome">&#8377;10000</strong>
+          </article>
+
+          <article class="summary-card expense-card">
+            <span>Total Expense</span>
+            <strong id="totalExpense">&#8377;3000</strong>
+          </article>
+
+          <article class="summary-card balance-card">
+            <span>Current Balance</span>
+            <strong id="currentBalance">&#8377;7000</strong>
+          </article>
+        </div>
+
+        <section class="content-section">
+          <div class="section-title">
+            <h2>All Transactions</h2>
+          </div>
+          <div id="transactionList" class="transaction-list"></div>
+        </section>
+      </section>
+
+      <section id="personalPage" class="page">
+        <section class="form-card">
+          <div class="section-title">
+            <h2 id="formTitle">Add Transaction</h2>
+          </div>
+
+          <form id="transactionForm">
+            <input id="rowNumber" name="rowNumber" type="hidden">
+
+            <label for="date">Date</label>
+            <input id="date" name="date" type="date" required>
+
+            <label for="type">Type</label>
+            <select id="type" name="type" required>
+              <option value="Income">Income</option>
+              <option value="Expense">Expense</option>
+            </select>
+
+            <label for="category">Category</label>
+            <select id="category" name="category" required></select>
+
+            <label for="amount">Amount</label>
+            <input id="amount" name="amount" type="number" min="1" placeholder="Enter amount" required>
+
+            <label for="notes">Notes</label>
+            <textarea id="notes" name="notes" rows="3" placeholder="Optional notes"></textarea>
+
+            <button class="save-button" type="submit">Save</button>
+            <button id="cancelEditButton" class="cancel-button" type="button">Cancel Edit</button>
+            <p id="formMessage" class="form-message" aria-live="polite"></p>
+          </form>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
